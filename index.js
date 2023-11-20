@@ -13,9 +13,11 @@ app.use(cors());
 //-----------------------------------
 const companyRoutes = require("./routes/companyRoute");
 const dealRoutes = require("./routes/dealRoute");
+const searchRoutes = require("./routes/searchRoute");
 
 app.use("/companies", companyRoutes);
 app.use("/deals", dealRoutes);
+app.use("/search", searchRoutes);
 
 app.get("/", (_req, res) => res.send("Connected to the backend"));
 
