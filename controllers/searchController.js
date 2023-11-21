@@ -39,6 +39,22 @@ const searchDealorCompany = (endpoint, keyword) => {
   });
 };
 
+const searchDealsByDate = async (req, res) => {
+  try {
+    const deals = await knex("deals")
+      .whereBetween("expected_sale_date", [
+        req.body.startDate,
+        req.body.endDate,
+      ])
+      .select("*");
+
+    res.json(deals);
+  } catch (error) {
+    throw error;
+  }
+};
+
 module.exports = {
   searchDealorCompany,
+  searchDealsByDate,
 };
