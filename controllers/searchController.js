@@ -46,7 +46,8 @@ const searchDealsByDate = async (req, res) => {
         req.body.startDate,
         req.body.endDate,
       ])
-      .select("*");
+      .innerJoin("companies", "companies.id", "deals.company_id")
+      .select("deals.*", "companies.company_name as company_name");
 
     res.json(deals);
   } catch (error) {

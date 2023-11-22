@@ -18,7 +18,7 @@ const searchRouteHandler = (req, res) => {
   }
 };
 
-router.get("/", searchController.searchDealsByDate);
+router.post("/", searchController.searchDealsByDate);
 router.get("/:endpoint", searchRouteHandler);
 
 module.exports = router;
