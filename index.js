@@ -16,19 +16,6 @@ app.use(cors());
 
 //Authorizaion
 //-----------------------------------
-function authorize(req, res, next) {
-  const { authorization } = req.headers;
-  const token = authorization.slice("Bearer ".length);
-  jwt.verify(token, jwt_secret, (error, decoded) => {
-    if (error) {
-      res.send("Token validation failed");
-    } else {
-      req.decoded = decoded;
-      console.log(decoded);
-      next();
-    }
-  });
-}
 
 app.post("/signup", async (req, res) => {
   const { username, name, password } = req.body;
@@ -46,7 +33,9 @@ app.post("/login", async (req, res) => {
     const user = users[0];
 
     if (user.username === username && user.password === password) {
-      const token = jwt.sign({ name: user.name }, jwt_secret);
+      const token = jwt.sign({ name: user.name }, jwt_secret, {
+        expiresIn: "1day",
+      });
       res.json({ token: token });
     } else {
       res.sendStatus(401);

@@ -1,9 +1,10 @@
 const router = require("express").Router();
+const authorize = require("../middleware");
 const companyController = require("./../controllers/companyController");
 
 router
   .route("/")
-  .get(companyController.getCompanies)
+  .get(authorize, companyController.getCompanies)
   .post(companyController.postNewCompany);
 
 router
