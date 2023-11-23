@@ -9,11 +9,6 @@ const getDeals = async (_req, res) => {
     .join("companies", "companies.id", "company_id")
     .select("deals.*", "company_name as company_name");
   res.status(200).json(data);
-  // } catch (error) {
-  //   res
-  //     .status(400)
-  //     .json({ message: `Error reaching the server, please try again later` });
-  // }
 };
 const getDealById = async (req, res) => {
   try {
