@@ -15,10 +15,12 @@ const getDeals = async (_req, res) => {
   //     .json({ message: `Error reaching the server, please try again later` });
   // }
 };
-
 const getDealById = async (req, res) => {
   try {
-    const data = await knex("deals").where({ id: req.params.id });
+    const data = await knex("deals")
+      .join("companies", "companies.id", "deals.company_id")
+      .select("deals.*", "companies.company_name as company_name")
+      .where({ "deals.id": req.params.id });
     res.status(200).json(data);
   } catch (error) {
     res
