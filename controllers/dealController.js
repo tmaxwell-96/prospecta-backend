@@ -54,7 +54,7 @@ const postDeal = async (req, res) => {
     !newDeal.percent_certainty ||
     !newDeal.expected_sale_date
   ) {
-    res
+    return res
       .status(400)
       .json(`Incomplete information in request, please fill all fields`);
   }
@@ -83,7 +83,9 @@ const putDeal = async (req, res) => {
     !newDeal.percent_certainty ||
     !newDeal.expected_sale_date
   ) {
-    res
+    console.log(req.body);
+
+    return res
       .status(400)
       .json(`Incomplete information in request, please fill all fields`);
   }
