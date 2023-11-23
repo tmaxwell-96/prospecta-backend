@@ -1,5 +1,6 @@
 const router = require("express").Router();
 const searchController = require("./../controllers/searchController");
+const authorize = require("../middleware");
 
 const searchRouteHandler = (req, res) => {
   const { endpoint } = req.params;
@@ -18,7 +19,7 @@ const searchRouteHandler = (req, res) => {
   }
 };
 
-router.post("/", searchController.searchDealsByDate);
-router.get("/:endpoint", searchRouteHandler);
+router.post("/", authorize, searchController.searchDealsByDate);
+router.get("/:endpoint", authorize, searchRouteHandler);
 
 module.exports = router;

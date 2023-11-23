@@ -5,12 +5,12 @@ const companyController = require("./../controllers/companyController");
 router
   .route("/")
   .get(authorize, companyController.getCompanies)
-  .post(companyController.postNewCompany);
+  .post(authorize, companyController.postNewCompany);
 
 router
   .route("/:id")
-  .put(companyController.updateCompany)
-  .delete(companyController.deleteCompany)
-  .get(companyController.getCompanyById);
+  .put(authorize, companyController.updateCompany)
+  .delete(authorize, companyController.deleteCompany)
+  .get(authorize, companyController.getCompanyById);
 
 module.exports = router;

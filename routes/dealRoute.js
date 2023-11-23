@@ -1,14 +1,18 @@
 const router = require("express").Router();
 const dealController = require("./../controllers/dealController");
+const authorize = require("../middleware");
 
-router.route("/").get(dealController.getDeals).post(dealController.postDeal);
+router
+  .route("/")
+  .get(authorize, dealController.getDeals)
+  .post(dealController.postDeal);
 
-router.route("/company/:id").get(dealController.getDealsByCompany);
+router.route("/company/:id").get(authorize, dealController.getDealsByCompany);
 
 router
   .route("/:id")
-  .put(dealController.putDeal)
-  .delete(dealController.deleteDeal)
-  .get(dealController.getDealById);
+  .put(authorize, dealController.putDeal)
+  .delete(authorize, dealController.deleteDeal)
+  .get(authorize, dealController.getDealById);
 
 module.exports = router;
