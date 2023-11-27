@@ -12,8 +12,10 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "db:migrate": "knex migrate:latest",
-    "db:seed": "knex seed:run",
+    "migrate": "knex migrate:latest",
+    "migrate:down": "knex migrate:down",
+    "migrate:rollback": "knex migrate:rollback",
+    "seed": "knex seed:run",
     "start": "node index.js"
   },
   "keywords": [],
