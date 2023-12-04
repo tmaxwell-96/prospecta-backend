@@ -54,7 +54,7 @@ const postNewCompany = async (req, res) => {
     res.status(201).json(newCompany);
   } catch (error) {
     res.status(500).json({
-      message: `Unable to create new company, please try again later. Error: ${error}`,
+      message: `Unable to create new company, please try again later.`,
     });
   }
 };
@@ -96,7 +96,7 @@ const updateCompany = async (req, res) => {
     res.json(updatedCompany);
   } catch (error) {
     res.status(500).json({
-      message: `Unable to update company, please try again later. Error: ${error}`,
+      message: `Unable to update company, please try again later.`,
     });
   }
 };
@@ -118,7 +118,7 @@ const deleteCompany = async (req, res) => {
     res.status(200).json({ message: `Delete successful` });
   } catch (error) {
     res.status(500).json({
-      message: `Unable to delete company, please try again later. Error: ${error}`,
+      message: `Unable to delete company, please try again later.`,
     });
   }
 };

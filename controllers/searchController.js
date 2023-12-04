@@ -51,7 +51,7 @@ const searchDealsByDate = async (req, res) => {
 
     res.json(deals);
   } catch (error) {
-    throw error;
+    console.log(`Error reaching the server, please try again later.`);
   }
 };
 
