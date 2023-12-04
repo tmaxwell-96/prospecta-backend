@@ -8,7 +8,7 @@ Prospecta is a simple to use and easy to visualize sales pipeline navigator capa
 
 ## How to Start
 
-#### If Starting from github
+#### If visiting the live site
 
 - Visit the following link: https://prospecta.netlify.app/;
 - Please note that the server may take several seconds to make the signup or login request at startup. After this time, requests will be immediate.
