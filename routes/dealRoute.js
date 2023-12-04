@@ -5,7 +5,7 @@ const authorize = require("../middleware");
 router
   .route("/")
   .get(authorize, dealController.getDeals)
-  .post(dealController.postDeal);
+  .post(authorize, dealController.postDeal);
 
 router.route("/company/:id").get(authorize, dealController.getDealsByCompany);
 

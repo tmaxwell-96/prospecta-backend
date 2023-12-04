@@ -6,8 +6,7 @@ const jwt = require("jsonwebtoken");
 const PORT = process.env.PORT || 5050;
 const knex = require("knex")(require("./knexfile"));
 
-const jwt_secret =
-  "e596628aad6b0a5bd58541bc688c893671d73b73f80b7fcc8af4c5a9adf5e838";
+const jwt_secret = process.env.JWT_SECRET;
 
 //Middleware
 //-----------------------------------
